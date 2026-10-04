@@ -60,6 +60,20 @@
   font-weight: 400;
   max-width: 460px;
   line-height: 1.7;
+  min-height: 3.4em;
+}
+
+.cursor {
+  display: inline-block;
+  color: $accent-1;
+  font-weight: 300;
+  margin-left: 1px;
+  animation: blink 0.9s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 .cta {

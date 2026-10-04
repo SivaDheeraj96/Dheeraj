@@ -20,10 +20,11 @@ const SECTION_COMPONENTS: Record<SectionType, React.FC> = {
 };
 
 export const Homepage: React.FC = () => {
-  const [active, setActive] = useState<SectionType>('home');
-  const [showTop, setShowTop] = useState(false);
-  const mainRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [active, setActive]     = useState<SectionType>('home');
+  const [showTop, setShowTop]   = useState(false);
+  const [mouse, setMouse]       = useState({ x: -9999, y: -9999 });
+  const mainRef                 = useRef<HTMLDivElement>(null);
+  const sectionRefs             = useRef<Record<string, HTMLDivElement | null>>({});
 
   const handleNavClick = useCallback((id: SectionType) => {
     const el = sectionRefs.current[id];
@@ -36,7 +37,14 @@ export const Homepage: React.FC = () => {
     mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Active section tracking + back-to-top visibility
+  // Cursor spotlight
+  useEffect(() => {
+    const move = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY });
+    window.addEventListener('mousemove', move);
+    return () => window.removeEventListener('mousemove', move);
+  }, []);
+
+  // Active section + back-to-top + scroll-reveal
   useEffect(() => {
     const container = mainRef.current;
     if (!container) return;
@@ -45,24 +53,14 @@ export const Homepage: React.FC = () => {
     container.addEventListener('scroll', onScroll, { passive: true });
 
     const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id as SectionType);
-        });
-      },
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id as SectionType); }),
       { root: container, rootMargin: '-30% 0px -60% 0px', threshold: 0 }
     );
 
-    // Scroll-reveal observer
     const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+      }),
       { root: container, threshold: 0.08 }
     );
 
@@ -84,6 +82,20 @@ export const Homepage: React.FC = () => {
 
   return (
     <div className={styles.layout}>
+      {/* Aurora background orbs */}
+      <div className={styles.aurora} aria-hidden>
+        <div className={styles.orb1} />
+        <div className={styles.orb2} />
+        <div className={styles.orb3} />
+      </div>
+
+      {/* Cursor spotlight */}
+      <div
+        className={styles.spotlight}
+        style={{ background: `radial-gradient(650px circle at ${mouse.x}px ${mouse.y}px, rgba(0,209,209,0.045), transparent 40%)` }}
+        aria-hidden
+      />
+
       <aside className={styles.sidebar}>
         <LeftRail active={active} onNavClick={handleNavClick} />
       </aside>

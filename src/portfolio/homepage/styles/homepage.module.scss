@@ -8,12 +8,82 @@ $sidebar-icon-width: 68px;
   width: 100vw;
   background: $bg-primary;
   overflow: hidden;
+  position: relative;
 }
 
+/* ── Aurora background ── */
+.aurora {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@mixin orb($w, $h, $color) {
+  position: absolute;
+  width: $w;
+  height: $h;
+  border-radius: 50%;
+  background: $color;
+  filter: blur(100px);
+  opacity: 0.12;
+}
+
+.orb1 {
+  @include orb(700px, 700px, $accent-1);
+  top: -250px;
+  right: -150px;
+  animation: drift1 22s ease-in-out infinite;
+}
+
+.orb2 {
+  @include orb(600px, 600px, $accent-2);
+  bottom: -200px;
+  left: 15%;
+  animation: drift2 28s ease-in-out infinite;
+}
+
+.orb3 {
+  @include orb(450px, 450px, $accent-1);
+  top: 35%;
+  left: -180px;
+  opacity: 0.08;
+  animation: drift3 18s ease-in-out infinite;
+}
+
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(40px, -30px) scale(1.06); }
+  66%       { transform: translate(-25px, 20px) scale(0.94); }
+}
+
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-35px, 25px) scale(1.04); }
+  66%       { transform: translate(30px, -20px) scale(0.97); }
+}
+
+@keyframes drift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(20px, -35px) scale(1.08); }
+}
+
+/* ── Cursor spotlight ── */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.1s ease;
+}
+
+/* ── Layout ── */
 .sidebar {
   width: $sidebar-icon-width;
   flex-shrink: 0;
-  background: $bg-sidebar;
+  background: rgba($bg-sidebar, 0.85);
+  backdrop-filter: blur(12px);
   border-right: 1px solid $border;
   height: 100vh;
   position: fixed;
@@ -28,6 +98,8 @@ $sidebar-icon-width: 68px;
   flex: 1;
   height: 100vh;
   overflow-y: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .content {
@@ -44,7 +116,7 @@ $sidebar-icon-width: 68px;
   }
 }
 
-/* Back to top */
+/* ── Back to top ── */
 .backToTop {
   position: fixed;
   bottom: 36px;
@@ -64,7 +136,7 @@ $sidebar-icon-width: 68px;
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s, color 0.2s;
 
   &:hover {
     border-color: $accent-1;
@@ -78,14 +150,13 @@ $sidebar-icon-width: 68px;
   pointer-events: auto;
 }
 
-/* Mobile — bottom tab bar */
+/* ── Mobile bottom tab bar ── */
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
     height: 60px;
     top: auto;
     bottom: 0;
-    left: 0;
     border-right: none;
     border-top: 1px solid $border;
     overflow: hidden;
