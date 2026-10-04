@@ -1,24 +1,115 @@
 {
-  "name":{
+  "name": {
     "first": "Siva Dheeraj Reddy",
     "last": "Obulam"
   },
-  "social-media":[
-    {"name":"Github",
-     "link":"https://github.com/SivaDheeraj96",
-     "text":"@SivaDheeraj96",
-     "icon":"github"
+  "title": "Front-End Engineer",
+  "location": "Hayward, CA",
+  "about": "Front-end engineer specializing in AI-powered features. I've built conversational AI experiences including a streaming chat UI, agentic data exploration tools, and automated eval pipelines. Strong background in React and TypeScript, with 7+ years across product companies in the US and India.",
+  "contact": {
+    "email": "obulam.sivadheeraj@gmail.com"
+  },
+  "social-media": [
+    {
+      "name": "GitHub",
+      "link": "https://github.com/SivaDheeraj96",
+      "text": "@SivaDheeraj96",
+      "icon": "github"
     },
-    {"name":"LinkedIn",
-     "link":"https://www.linkedin.com/in/sivadheerajreddy/",
-     "text":"@SivaDheerajReddyObulam",
-     "icon":"linkedin"
+    {
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/sivadheerajreddy/",
+      "text": "sivadheerajreddy",
+      "icon": "linkedin"
     }
   ],
-  "skills":[
-    {"name": "Programming", "value":["TypeScript", "React", "Node.js", "Java"]},
-    {"name": "Scripting", "value":["HTML", "SCSS", "Bash"]},
-    {"name": "Frameworks and tools", "value":["Amazon Web Services (AWS)", "Google Cloud Platform (GCP)", "Redis", "Apache Ant", "Tomcat", "Git", "CI/CD", "Mercurial", "Selenium", "HDFS", "CDN", "Kafka"]},
-    {"name": "Softwares", "value": ["Tableau", "Power BI", "Zoho Analytics", "Zoho Projects", "Sigma Computing"]}
+  "skills": [
+    {
+      "name": "Frontend",
+      "value": ["React", "Redux", "TypeScript", "ECMAScript 6", "HTML", "CSS / SASS"]
+    },
+    {
+      "name": "Backend & Scripting",
+      "value": ["Node.js", "Java", "Bash", "MySQL", "pgSQL"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "value": ["AWS", "CI/CD", "CDN", "Git", "Mercurial"]
+    },
+    {
+      "name": "Frameworks & Tools",
+      "value": ["Spring", "Tomcat", "Redis", "Selenium", "Apache Struts"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "Sigma Computing",
+      "location": "San Francisco, US",
+      "period": "June 2023 – Present",
+      "bullets": [
+        "Shipped a new AI engine with dataset support, semantic search integration, usage tracking, metrics suite, and scheduled eval runs",
+        "Built a collapsible chat UI with animated turns, progress displays, and agent lifecycle tracking",
+        "Developed agentic data exploration tools: natural language → query translation, chart rendering, filter/control context injection, and page-aware element context",
+        "Reduced LLM cost by scoping conversation history to the current turn and adding prompt caching",
+        "Improved answer accuracy via function-selection pre-calls and argument-fix retry logic"
+      ],
+      "tech": ["TypeScript", "React", "AI / LLM"]
+    },
+    {
+      "role": "Software Engineer Intern",
+      "company": "Sigma Computing",
+      "location": "San Francisco, US",
+      "period": "June 2022 – August 2022",
+      "bullets": [
+        "Built client components from scratch using React and TypeScript, including a Color Picker and several product feature extensions"
+      ],
+      "tech": ["TypeScript", "React"]
+    },
+    {
+      "role": "Member Technical Staff",
+      "company": "Zoho Analytics",
+      "location": "Chennai, India",
+      "period": "June 2017 – August 2021",
+      "bullets": [
+        "Designed authorization flow for resources and roles in Apache Struts, centralizing audit and maintenance workflows",
+        "Built in-house automation testing framework in ES6/TypeScript — scaled test cases to ~40k and cut run time by 50%",
+        "Integrated forecasting modules with time series and regression analysis; built responsive, reusable MVC UI components",
+        "Developed a functional testing framework using Java Reflections and proxy patterns for third-party dependency testing"
+      ],
+      "tech": ["Java", "TypeScript", "ES6", "Redis", "pgSQL", "HTML", "SASS"]
+    },
+    {
+      "role": "Project Intern",
+      "company": "Zoho Analytics",
+      "location": "Chennai, India",
+      "period": "December 2016 – May 2017",
+      "bullets": [
+        "Re-architected legacy filter module server code to clean design patterns for extensibility",
+        "Improved performance by 10% using slave querying; reduced support requests by ~40%"
+      ],
+      "tech": ["Java", "JavaScript", "Redis", "MySQL", "HTML", "SASS"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science — Software Engineering Systems",
+      "school": "Northeastern University",
+      "location": "Boston, MA, US",
+      "period": "April 2023"
+    },
+    {
+      "degree": "Bachelor of Technology — Electronics and Communication Engineering",
+      "school": "SASTRA University",
+      "location": "Thanjavur, TN, India",
+      "period": "May 2017"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Enhancing healthcare using m-Care box (Monitoring non-compliance of medication)",
+      "venue": "IEEE International Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud)",
+      "year": "2017"
+    }
   ]
 }

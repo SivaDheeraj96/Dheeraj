@@ -1,40 +1,37 @@
 import React from 'react';
+import { LeftRail } from './LeftRail';
 import { Home } from '../Home/Home';
 import { Skills } from '../skills/Skills';
-import { LeftRail } from './LeftRail';
+import { Experience } from '../experience/Experience';
+import { Education } from '../education/Education';
+import { Contact } from '../contact/Contact';
 import styles from './styles/homepage.module.scss';
 
-export interface Section_t {
-  type : 'home' | "skills" | 'experience' | 'education' | 'contact';
-}
+export type SectionType = 'home' | 'skills' | 'experience' | 'education' | 'contact';
+
 export const Homepage: React.FC = () => {
-  const [section, setSection] = React.useState<Section_t['type']>('home');
+  const [section, setSection] = React.useState<SectionType>('home');
+
+  const renderSection = () => {
+    switch (section) {
+      case 'home':       return <Home />;
+      case 'skills':     return <Skills />;
+      case 'experience': return <Experience />;
+      case 'education':  return <Education />;
+      case 'contact':    return <Contact />;
+    }
+  };
+
   return (
-  <>
-    <div className={styles['main-container']}>
-      <LeftRail setSection={setSection}></LeftRail>
-      <div className={styles['body-content']} >
-        <div className={styles['header-container']} >
-          <span className={styles['title']}> {section.toUpperCase()}</span>
+    <div className={styles.layout}>
+      <aside className={styles.sidebar}>
+        <LeftRail active={section} setSection={setSection} />
+      </aside>
+      <main className={styles.main}>
+        <div className={styles.content}>
+          {renderSection()}
         </div>
-        {section === 'home' &&
-          (<Home/>)
-        }
-        {section === 'skills' &&
-          (<Skills/>)
-        }
-        {section === 'experience' &&
-          (<div className='experience-container'>This is My Experience Page; still under construction</div>)
-        }
-        {section === 'education' &&
-          (<div className='education-container'>This is My Education Page; still under construction</div>)
-        }
-        {section === 'contact' &&
-          (<div className='contact-container'>This is My Contact Page; still under construction</div>)
-        }
-        
-      </div>
+      </main>
     </div>
-  </>
   );
 };

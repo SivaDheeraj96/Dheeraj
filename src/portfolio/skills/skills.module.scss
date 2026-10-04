@@ -1,22 +1,59 @@
 @import './../styles/theme.module.scss';
 @import './../styles/general.module.scss';
-.skills-container{
-  padding: 5%;
-  .skill-group-name{
-    @include card(map-get($theme, standard, body, clr));
-    padding: 0.5%;
-    font-size: 24px;
-    font-weight: bold;
-    color: map-get($theme, standard, top-rail, clr);
-    display: inline-block;
-  }
-  .skill-name-container{
-    padding: 1%;
-  }
-  .skill-name{
-    @include card(map-get($theme, standard, body, clr));
-    margin: 1%;
-    padding: 0.5%;
-    display: inline-block;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.heading {
+  @include section-heading;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.groupName {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background: $bg-card;
+  color: $text-primary;
+  border: 1px solid $border;
+  transition: all 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.4);
+    color: $accent-1;
+    background: rgba(0, 209, 209, 0.06);
+    transform: translateY(-1px);
   }
 }

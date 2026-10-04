@@ -1,32 +1,62 @@
 @import './../../styles/theme.module.scss';
 
-.main-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
+.layout {
   display: flex;
-  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background: $bg-primary;
+  overflow: hidden;
 }
 
-.header-container{
-  background-color: map-get($theme, standard, top-rail, bg );
-  color: map-get($theme, standard, top-rail, clr );
-  height: 10vh;
-  flex-grow: 1;
+.sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  background: $bg-sidebar;
+  border-right: 1px solid $border;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
 
-  .title{
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    margin-top: 2%;
-    font-weight: bold;
-    font-size: 32px;
+.main {
+  margin-left: $sidebar-width;
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  background: $bg-primary;
+}
+
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 48px 80px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
   }
-}
-.body-content{
-  background-color: adjust-color(map-get($theme, standard, body, bg ), $lightness: +10%);
-  color: map-get($theme, standard, body, clr);
-  flex-grow: 1;
-  width: 90%;
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid $border;
+  }
+
+  .main {
+    margin-left: 0;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .content {
+    padding: 32px 24px 60px;
+  }
 }

@@ -1,0 +1,105 @@
+@import './../styles/theme.module.scss';
+@import './../styles/general.module.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.heading {
+  @include section-heading;
+}
+
+.subHeading {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  @include card;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.25);
+  }
+}
+
+.degree {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.school {
+  font-size: 14px;
+  font-weight: 600;
+  color: $accent-1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.location {
+  font-size: 13px;
+  color: $text-muted;
+}
+
+.separator {
+  font-size: 12px;
+  color: $text-muted;
+}
+
+.period {
+  font-size: 13px;
+  color: $text-muted;
+  font-family: 'Fira Code', monospace;
+}
+
+.pubSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.pubCard {
+  @include card;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.25);
+  }
+}
+
+.pubTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pubVenue {
+  font-size: 13px;
+  color: $text-muted;
+}
