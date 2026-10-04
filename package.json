@@ -1,7 +1,7 @@
 {
   "name": "Dheeraj",
   "version": "0.1.0",
-  "homepage": "http://dheeraj.obulam.com",
+  "homepage": "https://obulam.com",
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
