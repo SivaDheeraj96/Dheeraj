@@ -94,10 +94,27 @@
   font-family: 'Fira Code', monospace;
 }
 
-.description {
+.location {
+  font-size: 13px;
+  color: $text-muted;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bullet {
   font-size: 14px;
   color: $text-secondary;
-  line-height: 1.8;
+  line-height: 1.7;
+
+  &::marker {
+    color: $accent-1;
+  }
 }
 
 .techRow {

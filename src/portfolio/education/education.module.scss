@@ -4,34 +4,42 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
 }
 
 .heading {
   @include section-heading;
 }
 
+.subHeading {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+
 .list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .card {
   @include card;
-  padding: 28px 32px;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   transition: border-color 0.2s ease;
 
   &:hover {
-    border-color: rgba(0, 209, 209, 0.2);
+    border-color: rgba(0, 209, 209, 0.25);
   }
 }
 
 .degree {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: $text-primary;
 }
@@ -45,8 +53,18 @@
 .meta {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
+}
+
+.location {
+  font-size: 13px;
+  color: $text-muted;
+}
+
+.separator {
+  font-size: 12px;
+  color: $text-muted;
 }
 
 .period {
@@ -55,8 +73,33 @@
   font-family: 'Fira Code', monospace;
 }
 
-.details {
+.pubSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.pubCard {
+  @include card;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.25);
+  }
+}
+
+.pubTitle {
   font-size: 14px;
-  color: $text-secondary;
-  margin-top: 4px;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pubVenue {
+  font-size: 13px;
+  color: $text-muted;
 }

@@ -11,10 +11,25 @@ export const Education: React.FC = () => {
           <div key={i} className={styles.card}>
             <span className={styles.degree}>{edu.degree}</span>
             <span className={styles.school}>{edu.school}</span>
-            <span className={styles.period}>{edu.period}</span>
-            {edu.details && <p className={styles.details}>{edu.details}</p>}
+            <div className={styles.meta}>
+              <span className={styles.location}>{edu.location}</span>
+              <span className={styles.separator}>·</span>
+              <span className={styles.period}>{edu.period}</span>
+            </div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.pubSection}>
+        <h3 className={styles.subHeading}>Publications</h3>
+        <div className={styles.list}>
+          {data.publications.map((pub, i) => (
+            <div key={i} className={styles.pubCard}>
+              <span className={styles.pubTitle}>"{pub.title}"</span>
+              <span className={styles.pubVenue}>{pub.venue} · {pub.year}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

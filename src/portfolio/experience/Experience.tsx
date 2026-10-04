@@ -16,10 +16,16 @@ export const Experience: React.FC = () => {
                 <div className={styles.meta}>
                   <span className={styles.company}>{exp.company}</span>
                   <span className={styles.separator}>·</span>
+                  <span className={styles.location}>{exp.location}</span>
+                  <span className={styles.separator}>·</span>
                   <span className={styles.period}>{exp.period}</span>
                 </div>
               </div>
-              <p className={styles.description}>{exp.description}</p>
+              <ul className={styles.bullets}>
+                {exp.bullets.map((b, j) => (
+                  <li key={j} className={styles.bullet}>{b}</li>
+                ))}
+              </ul>
               <div className={styles.techRow}>
                 {exp.tech.map((t) => (
                   <span key={t} className={styles.techTag}>{t}</span>

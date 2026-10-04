@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../data/info.json';
 import styles from './home.module.scss';
 
-const TOP_TECH = ['TypeScript', 'React', 'Node.js', 'AWS', 'GCP', 'Java'];
+const TOP_TECH = ['TypeScript', 'React', 'Redux', 'Node.js', 'AWS', 'AI / LLM'];
 
 export const Home: React.FC = () => {
   return (
@@ -15,8 +15,8 @@ export const Home: React.FC = () => {
       </div>
 
       <p className={styles.tagline}>
-        Full Stack Developer crafting fast, scalable web applications —<br />
-        from React frontends to cloud-native backends.
+        Front-end engineer specializing in AI-powered features —<br />
+        streaming chat UIs, agentic tools, and React at scale.
       </p>
 
       <div className={styles.cta}>
@@ -47,16 +47,16 @@ export const Home: React.FC = () => {
 
       <div className={styles.statsRow}>
         <div className={styles.stat}>
-          <span className={styles.statValue}>5+</span>
+          <span className={styles.statValue}>7+</span>
           <span className={styles.statLabel}>Years experience</span>
         </div>
         <div className={styles.stat}>
           <span className={styles.statValue}>2</span>
-          <span className={styles.statLabel}>Roles held</span>
+          <span className={styles.statLabel}>Companies</span>
         </div>
         <div className={styles.stat}>
-          <span className={styles.statValue}>10+</span>
-          <span className={styles.statLabel}>Technologies</span>
+          <span className={styles.statValue}>~40k</span>
+          <span className={styles.statLabel}>Test cases automated</span>
         </div>
       </div>
 
