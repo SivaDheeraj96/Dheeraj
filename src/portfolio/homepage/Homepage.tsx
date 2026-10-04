@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { LeftRail } from './LeftRail';
 import { Home } from '../Home/Home';
 import { Skills } from '../skills/Skills';
@@ -21,65 +21,44 @@ const SECTION_COMPONENTS: Record<SectionType, React.FC> = {
 
 export const Homepage: React.FC = () => {
   const [active, setActive] = useState<SectionType>('home');
-  const [showTop, setShowTop] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  const handleNavClick = useCallback((id: SectionType) => {
+  // Scroll to section when nav icon is clicked
+  const handleNavClick = (id: SectionType) => {
     const el = sectionRefs.current[id];
     if (el && mainRef.current) {
       mainRef.current.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
     }
-  }, []);
+  };
 
-  const scrollToTop = useCallback(() => {
-    mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  // Active section tracking + back-to-top visibility
+  // Track active section via IntersectionObserver
   useEffect(() => {
     const container = mainRef.current;
     if (!container) return;
 
-    const onScroll = () => setShowTop(container.scrollTop > 300);
-    container.addEventListener('scroll', onScroll, { passive: true });
-
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id as SectionType);
-        });
-      },
-      { root: container, rootMargin: '-30% 0px -60% 0px', threshold: 0 }
-    );
-
-    // Scroll-reveal observer
-    const revealObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
+            setActive(entry.target.id as SectionType);
           }
         });
       },
-      { root: container, threshold: 0.08 }
+      {
+        root: container,
+        // Trigger when section crosses the top 30–60% band of the scroll container
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0,
+      }
     );
 
     SECTIONS.forEach((id) => {
       const el = sectionRefs.current[id];
-      if (el) {
-        navObserver.observe(el);
-        el.classList.add('reveal');
-        revealObserver.observe(el);
-      }
+      if (el) observer.observe(el);
     });
 
-    return () => {
-      container.removeEventListener('scroll', onScroll);
-      navObserver.disconnect();
-      revealObserver.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -105,14 +84,6 @@ export const Homepage: React.FC = () => {
           })}
         </div>
       </main>
-
-      <button
-        className={`${styles.backToTop} ${showTop ? styles.backToTopVisible : ''}`}
-        onClick={scrollToTop}
-        aria-label="Back to top"
-      >
-        ↑
-      </button>
     </div>
   );
 };
