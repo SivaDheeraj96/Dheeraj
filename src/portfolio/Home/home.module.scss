@@ -4,11 +4,25 @@
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 36px;
+}
+
+.heroTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
 }
 
 .greeting {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -18,11 +32,11 @@
 .nameBlock {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .firstName {
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 800;
   color: $text-primary;
   line-height: 1.1;
@@ -30,7 +44,7 @@
 }
 
 .lastName {
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1px;
@@ -41,25 +55,24 @@
 }
 
 .tagline {
-  font-size: 18px;
+  font-size: 16px;
   color: $text-secondary;
   font-weight: 400;
-  max-width: 520px;
+  max-width: 460px;
   line-height: 1.7;
 }
 
 .cta {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 8px;
 }
 
 .btnPrimary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
+  padding: 11px 24px;
   background: linear-gradient(135deg, $accent-1, $accent-2);
   color: #fff;
   border: none;
@@ -80,7 +93,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
+  padding: 11px 24px;
   background: transparent;
   color: $text-primary;
   border: 1px solid $border;
@@ -98,17 +111,34 @@
   }
 }
 
+.photoWrapper {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, $accent-1, $accent-2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 3px solid $bg-primary;
+  }
+}
+
 .divider {
   width: 100%;
   height: 1px;
   background: $border;
-  margin: 12px 0;
 }
 
 .about {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .aboutLabel {
@@ -130,7 +160,6 @@
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  margin-top: 8px;
 }
 
 .stat {
@@ -140,7 +169,7 @@
 }
 
 .statValue {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 800;
   background: linear-gradient(135deg, $accent-1, $accent-2);
   -webkit-background-clip: text;
@@ -160,7 +189,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 24px;
+  padding: 22px 24px;
   background: $bg-card;
   border: 1px solid $border;
   border-radius: 12px;
@@ -182,4 +211,16 @@
 
 .techTag {
   @include tag;
+}
+
+@media (max-width: 600px) {
+  .heroTop {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+
+  .photoWrapper {
+    width: 100px;
+    height: 100px;
+  }
 }
