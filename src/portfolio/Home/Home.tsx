@@ -23,16 +23,13 @@ export const Home: React.FC = () => {
           </p>
 
           <div className={styles.cta}>
-            <a href="/resume.pdf" download className={styles.btnPrimary}>
-              ↓ Download Resume
-            </a>
             <a
               href={data['social-media'].find(s => s.icon === 'linkedin')?.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnSecondary}
+              className={styles.btnPrimary}
             >
-              LinkedIn
+              Connect on LinkedIn
             </a>
             <a
               href={data['social-media'].find(s => s.icon === 'github')?.link}
