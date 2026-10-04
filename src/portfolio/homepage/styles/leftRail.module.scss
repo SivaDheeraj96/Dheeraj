@@ -1,29 +1,29 @@
 @import './../../styles/theme.module.scss';
-@import './../../styles/general.module.scss';
 
 .sidebar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
-  padding: 32px 0 24px;
+  padding: 28px 0;
+  gap: 0;
 }
 
 .profile {
-  padding: 0 24px 32px;
-  border-bottom: 1px solid $border;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid $border;
+  width: 100%;
 }
 
 .avatarWrapper {
-  width: 64px;
-  height: 64px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   padding: 2px;
   background: linear-gradient(135deg, $accent-1, $accent-2);
-  margin-bottom: 16px;
-  flex-shrink: 0;
 
   img {
     width: 100%;
@@ -35,109 +35,111 @@
   }
 }
 
-.name {
-  font-size: 15px;
-  font-weight: 700;
-  color: $text-primary;
-  line-height: 1.3;
-}
-
-.title {
-  font-size: 12px;
-  color: $text-secondary;
-  margin-top: 4px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.statusDot {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  font-size: 11px;
-  color: $text-secondary;
-
-  &::before {
-    content: '';
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
-    flex-shrink: 0;
-  }
-}
-
 .nav {
   flex: 1;
-  padding: 24px 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  padding: 20px 0;
+  gap: 4px;
+  width: 100%;
 }
 
 .navItem {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 11px 24px;
-  font-size: 14px;
-  font-weight: 500;
-  color: $text-secondary;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: $text-muted;
   cursor: pointer;
-  border-radius: 0;
   transition: all 0.2s ease;
-  border-left: 3px solid transparent;
-  user-select: none;
-  letter-spacing: 0.2px;
+  border: 1px solid transparent;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
 
   &:hover {
     color: $text-primary;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: $border;
+
+    .tooltip {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
   }
 
   &.active {
     color: $accent-1;
-    background: rgba(0, 209, 209, 0.07);
-    border-left-color: $accent-1;
+    background: rgba(0, 209, 209, 0.1);
+    border-color: rgba(0, 209, 209, 0.25);
   }
 }
 
-.navIcon {
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
-  flex-shrink: 0;
-  opacity: 0.8;
+.tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  background: $bg-card;
+  border: 1px solid $border;
+  color: $text-primary;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 200;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: $border;
+  }
 }
 
 .footer {
-  padding: 20px 24px 0;
-  border-top: 1px solid $border;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid $border;
+  width: 100%;
 }
 
 .socialLink {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: $text-secondary;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  color: $text-muted;
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 2px 0;
+  border-radius: 8px;
 
   &:hover {
     color: $accent-1;
+    background: rgba(0, 209, 209, 0.08);
   }
-}
 
-.socialIcon {
-  font-size: 15px;
-  width: 18px;
-  text-align: center;
-  flex-shrink: 0;
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }
