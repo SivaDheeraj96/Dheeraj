@@ -1,42 +1,54 @@
+@import './theme.module.scss';
 
-@mixin card ($color){
-  box-shadow: 0px 0px 3px 0px $color;
-  border-radius: 5px;
+@mixin card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 12px;
 }
 
-@mixin clickable ($bg-color, $color){
-  $lightness: lightness($bg-color);
-  @if($lightness <50){
-    &:hover{
-      background-color: adjust-color($color: $bg-color,$lightness: +20%);
-      transition-duration: 500ms;
-      transition-property: transform;
-      transform: scale(1.1);
-      color: $color;
-    }
+@mixin glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid $border;
+  border-radius: 12px;
+}
 
-    &:active{
-      background-color: adjust-color($color: $bg-color,$lightness: +40%);
-      transition-duration: 500ms;
-      transition-property: transform;
-      transform: scale(1.1);
-      color: $color;
-    }
-  } @else {
-    &:hover{
-      background-color: adjust-color($color: $bg-color,$lightness: -10%);
-      transition-duration: 500ms;
-      transition-property: transform;
-      transform: scale(1.1);
-      color: $color;
-    }
+@mixin gradient-text {
+  background: linear-gradient(135deg, $accent-1, $accent-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-    &:active{
-      background-color: adjust-color($color: $bg-color,$lightness: -20%);
-      transition-duration: 500ms;
-      transition-property: transform;
-      transform: scale(1.1);
-      color: $color;
-    }
+@mixin tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(0, 209, 209, 0.1);
+  color: $accent-1;
+  border: 1px solid rgba(0, 209, 209, 0.2);
+  white-space: nowrap;
+}
+
+@mixin section-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 32px;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(135deg, $accent-1, $accent-2);
+    border-radius: 2px;
   }
 }

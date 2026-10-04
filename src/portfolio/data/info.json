@@ -1,24 +1,81 @@
 {
-  "name":{
+  "name": {
     "first": "Siva Dheeraj Reddy",
     "last": "Obulam"
   },
-  "social-media":[
-    {"name":"Github",
-     "link":"https://github.com/SivaDheeraj96",
-     "text":"@SivaDheeraj96",
-     "icon":"github"
+  "title": "Full Stack Developer",
+  "about": "I build fast, scalable web applications from the ground up — from clean React frontends to robust Node.js backends and cloud infrastructure on AWS and GCP. I care deeply about developer experience, performance, and shipping things that work.",
+  "contact": {
+    "email": "dheeraj@obulam.com"
+  },
+  "social-media": [
+    {
+      "name": "GitHub",
+      "link": "https://github.com/SivaDheeraj96",
+      "text": "@SivaDheeraj96",
+      "icon": "github"
     },
-    {"name":"LinkedIn",
-     "link":"https://www.linkedin.com/in/sivadheerajreddy/",
-     "text":"@SivaDheerajReddyObulam",
-     "icon":"linkedin"
+    {
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/sivadheerajreddy/",
+      "text": "sivadheerajreddy",
+      "icon": "linkedin"
     }
   ],
-  "skills":[
-    {"name": "Programming", "value":["TypeScript", "React", "Node.js", "Java"]},
-    {"name": "Scripting", "value":["HTML", "SCSS", "Bash"]},
-    {"name": "Frameworks and tools", "value":["Amazon Web Services (AWS)", "Google Cloud Platform (GCP)", "Redis", "Apache Ant", "Tomcat", "Git", "CI/CD", "Mercurial", "Selenium", "HDFS", "CDN", "Kafka"]},
-    {"name": "Softwares", "value": ["Tableau", "Power BI", "Zoho Analytics", "Zoho Projects", "Sigma Computing"]}
+  "skills": [
+    {
+      "name": "Languages",
+      "value": ["TypeScript", "JavaScript", "Java", "Bash", "HTML", "CSS / SCSS"]
+    },
+    {
+      "name": "Frontend",
+      "value": ["React", "Redux", "Webpack", "Sass"]
+    },
+    {
+      "name": "Backend & APIs",
+      "value": ["Node.js", "REST APIs", "Kafka", "Redis", "Tomcat"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "value": ["AWS", "GCP", "CI/CD", "Docker", "CDN", "HDFS"]
+    },
+    {
+      "name": "Data & Analytics",
+      "value": ["Tableau", "Power BI", "Sigma Computing", "Zoho Analytics"]
+    },
+    {
+      "name": "Tools",
+      "value": ["Git", "Mercurial", "Selenium", "Apache Ant", "Zoho Projects"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Full Stack Developer",
+      "company": "Tech Company",
+      "period": "2021 – Present",
+      "description": "Designed and delivered full-stack features across React frontends and Node.js microservices. Improved page load performance by 35% through CDN integration and code-splitting. Owned CI/CD pipelines on AWS and led migration of legacy services to cloud-native architecture.",
+      "tech": ["React", "TypeScript", "Node.js", "AWS", "Kafka", "Redis"]
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Previous Company",
+      "period": "2019 – 2021",
+      "description": "Built data pipelines and internal dashboards using Java and GCP. Created automated test suites with Selenium that cut QA cycle time by 50%. Collaborated closely with product and design teams in an agile environment.",
+      "tech": ["Java", "GCP", "Selenium", "HDFS", "Tableau"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science — Computer Science",
+      "school": "University Name",
+      "period": "2017 – 2019",
+      "details": "Focused on distributed systems and cloud computing."
+    },
+    {
+      "degree": "Bachelor of Technology — Computer Science",
+      "school": "University Name",
+      "period": "2013 – 2017",
+      "details": "Graduated with distinction."
+    }
   ]
 }

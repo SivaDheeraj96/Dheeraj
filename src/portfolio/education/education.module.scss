@@ -1,0 +1,62 @@
+@import './../styles/theme.module.scss';
+@import './../styles/general.module.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.heading {
+  @include section-heading;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  @include card;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.2);
+  }
+}
+
+.degree {
+  font-size: 17px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.school {
+  font-size: 14px;
+  font-weight: 600;
+  color: $accent-1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.period {
+  font-size: 13px;
+  color: $text-muted;
+  font-family: 'Fira Code', monospace;
+}
+
+.details {
+  font-size: 14px;
+  color: $text-secondary;
+  margin-top: 4px;
+}
