@@ -36,13 +36,15 @@ npm run build    # production build → /build
 
 ## Deploying
 
-```bash
-npm run deploy   # builds and pushes to the gh-pages branch
-```
+Deployment is automated via GitHub Actions (`.github/workflows/deploy.yml`).
 
-GitHub Pages serves the `gh-pages` branch. The `public/CNAME` file routes it to `obulam.com`.
+**Every push to `main` triggers a build and deploys automatically to GitHub Pages.**
 
-> After merging changes, run `npm run deploy` from the repo root to publish.
+You can also trigger a manual deploy from the **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**.
+
+The `public/CNAME` file routes the GitHub Pages URL to `obulam.com`.
+
+> **One-time setup:** In your GitHub repo go to **Settings → Pages** and set the source to **GitHub Actions** (not "Deploy from a branch").
 
 ## Updating content
 
