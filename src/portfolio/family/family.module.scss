@@ -1,0 +1,156 @@
+@import './../styles/theme.module.scss';
+@import './../styles/general.module.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.heading {
+  @include section-heading;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: $text-muted;
+  line-height: 1.6;
+
+  code {
+    font-family: 'Fira Code', monospace;
+    color: $accent-1;
+    font-size: 12px;
+  }
+}
+
+/* ── Tree wrapper ── */
+.treeWrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.treeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  min-width: 600px;
+  padding: 8px 16px 24px;
+}
+
+.connectorSvg {
+  overflow: visible;
+}
+
+/* ── Generation row ── */
+.generationRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.genLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.genCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* ── Couple card ── */
+.coupleCard {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.coupleConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8px;
+}
+
+.coupleLine {
+  width: 1px;
+  height: 14px;
+  background: $border;
+}
+
+.coupleHeart {
+  font-size: 11px;
+  color: rgba($accent-2, 0.7);
+  line-height: 1;
+}
+
+/* ── Member card ── */
+.memberCard {
+  width: 150px;
+  padding: 14px 16px;
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    border-color: rgba(0, 209, 209, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &.female {
+    border-color: rgba(123, 47, 190, 0.25);
+
+    &:hover {
+      border-color: rgba(123, 47, 190, 0.5);
+    }
+
+    .memberName {
+      background: linear-gradient(135deg, lighten($accent-2, 20%), $accent-2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &.isMe {
+    border-color: $accent-1;
+    background: rgba(0, 209, 209, 0.07);
+    box-shadow: 0 0 20px rgba(0, 209, 209, 0.12);
+
+    .memberName {
+      background: linear-gradient(135deg, $accent-1, $accent-2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 13px;
+    }
+  }
+}
+
+.memberName {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1.3;
+}
+
+.memberDates {
+  font-size: 11px;
+  color: $text-muted;
+  font-family: 'Fira Code', monospace;
+}

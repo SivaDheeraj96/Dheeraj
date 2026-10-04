@@ -1,0 +1,17 @@
+{
+  "title": "Obulam Family Tree",
+  "members": [
+    { "id": "pgf", "name": "Paternal Grandfather", "birth": "1940", "gender": "M" },
+    { "id": "pgm", "name": "Paternal Grandmother", "birth": "1943", "gender": "F" },
+    { "id": "mgf", "name": "Maternal Grandfather", "birth": "1942", "gender": "M" },
+    { "id": "mgm", "name": "Maternal Grandmother", "birth": "1945", "gender": "F" },
+    { "id": "father", "name": "Father", "birth": "1965", "gender": "M" },
+    { "id": "mother", "name": "Mother", "birth": "1968", "gender": "F" },
+    { "id": "me", "name": "Siva Dheeraj Reddy Obulam", "birth": "1995", "gender": "M", "isMe": true }
+  ],
+  "couples": [
+    { "id": "c1", "partners": ["pgf", "pgm"], "children": ["father"] },
+    { "id": "c2", "partners": ["mgf", "mgm"], "children": ["mother"] },
+    { "id": "c3", "partners": ["father", "mother"], "children": ["me"] }
+  ]
+}
