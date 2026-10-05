@@ -5,11 +5,12 @@ import { Skills } from '../skills/Skills';
 import { Experience } from '../experience/Experience';
 import { Education } from '../education/Education';
 import { Contact } from '../contact/Contact';
+import { FamilyTree } from '../family/FamilyTree';
 import styles from './styles/homepage.module.scss';
 
-export type SectionType = 'home' | 'skills' | 'experience' | 'education' | 'contact';
+export type SectionType = 'home' | 'skills' | 'experience' | 'education' | 'contact' | 'family';
 
-const SECTIONS: SectionType[] = ['home', 'skills', 'experience', 'education', 'contact'];
+const SECTIONS: SectionType[] = ['home', 'skills', 'experience', 'education', 'contact', 'family'];
 
 const SECTION_COMPONENTS: Record<SectionType, React.FC> = {
   home:       Home,
@@ -17,6 +18,7 @@ const SECTION_COMPONENTS: Record<SectionType, React.FC> = {
   experience: Experience,
   education:  Education,
   contact:    Contact,
+  family:     FamilyTree,
 };
 
 export const Homepage: React.FC = () => {
