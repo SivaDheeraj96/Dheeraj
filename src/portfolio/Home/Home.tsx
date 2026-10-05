@@ -126,9 +126,8 @@ export const Home: React.FC = () => {
       </div>
 
       <div className={styles.statsRow}>
-        <Stat value={7}  suffix="+" label="Years experience" />
-        <Stat value={2}  label="Companies" />
-        <Stat value={40} prefix="~" suffix="k" label="Tests automated" />
+        <Stat value={7} suffix="+" label="Years experience" />
+        <Stat value={2} label="Companies" />
       </div>
 
       <div className={styles.techStack}>
